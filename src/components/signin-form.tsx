@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 import { useNavigate } from "react-router-dom"
 
@@ -67,6 +68,16 @@ export function SigninForm({
                 </div>
                 <Input id="password" type="password" required />
               </div>
+              <RadioGroup defaultValue="client" className="flex">
+                <div className="w-1/2 flex items-center space-x-2">
+                  <RadioGroupItem value="client" id="client" />
+                  <Label htmlFor="client" className="cursor-pointer">Client</Label>
+                </div>
+                <div className="w-1/2 flex items-center space-x-2">
+                  <RadioGroupItem value="organizer" id="organizer" />
+                  <Label htmlFor="organizer" className="cursor-pointer">Organisateur</Label>
+                </div>
+              </RadioGroup>
               <Button type="submit" className="w-full">
                 S'inscrire
               </Button>

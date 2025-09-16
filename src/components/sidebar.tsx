@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
-import { User2Icon, BookUserIcon, TicketCheckIcon, HouseIcon } from "lucide-react"
-import Alert from "./alert"
+import { User2Icon, TicketCheckIcon, HouseIcon } from "lucide-react"
+import AlertBeOrganizer from "./alertBeOrganizer"
+import AlertLogout from "./alertLogout"
 
 export default function SideBar() {
   const location = useLocation()
@@ -9,7 +10,6 @@ export default function SideBar() {
     { name: "Accueil", icon: <HouseIcon size={22} />, path: "/layout" },
     { name: "Mes tickets", icon: <TicketCheckIcon size={22} />, path: "/layout/ticket" },
     { name: "Mon profil", icon: <User2Icon size={22} />, path: "/layout/profil" },
-    { name: "Devenir organisateur", icon: <BookUserIcon size={22} />, path: "/layout/organizerForm" },
   ]
 
   return (
@@ -35,9 +35,14 @@ export default function SideBar() {
           ))}
         </nav>
 
-        <div className="w-full flex flex-col justify-center items-center gap-10 text-sm text-zinc-500">
-          <Alert/>
-          <p className="p-4 text-white font-extralight border-t">© 2025 - Tapakila</p>
+        <div className="w-full flex flex-col justify-center items-center gap-4 text-sm text-zinc-500">
+          <div className="w-full bg-white mt-4 py-3 rounded-xl cursor-pointer">
+            <AlertBeOrganizer/>
+          </div>
+          <div className="w-full py-3 rounded-xl cursor-pointer hover:bg-indigo-900/40">
+            <AlertLogout/>
+          </div>
+          <p className="p-4 mt-5 text-white font-extralight border-t">© 2025 - Tapakila</p>
         </div>
       </aside>
     </div>

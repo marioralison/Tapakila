@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import { useNavigate } from "react-router-dom"
 
-export default function Alert() {
+export default function AlertLogout() {
 
     const navigate = useNavigate()
 
