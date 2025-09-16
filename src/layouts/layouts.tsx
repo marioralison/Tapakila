@@ -1,21 +1,13 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
+import SideBar from "@/components/sidebar"
 import { Outlet } from "react-router-dom"
 
 export default function Layout() {
-  return (
-    <SidebarProvider>
-      <div className="flex w-screen h-screen">
-        {/* Sidebar */}
-        <AppSidebar />
-
-        {/* Main content */}
-        <main className="flex-1 p-4">
-          <SidebarTrigger />
-          <h1 className="text-2xl font-bold mb-4">Layout chargé ✅</h1>
-          <Outlet />
+  return(
+    <div className="flex w-screen h-screen">
+        <SideBar />
+        <main className="w-full h-full flex-1 py-10 px-10 overflow-y-auto border border-black">
+            <Outlet />
         </main>
-      </div>
-    </SidebarProvider>
+    </div>
   )
 }

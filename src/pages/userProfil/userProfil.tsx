@@ -1,10 +1,10 @@
-function EventMain() {
+function UserProfil() {
 
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <h1>Liste évènement</h1>
+      <h1>Profil utilisateur</h1>
     </div>
   )
 }
 
-export default EventMain
+export default UserProfil
