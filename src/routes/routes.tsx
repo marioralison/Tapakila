@@ -4,7 +4,7 @@ import Login from "@/pages/auth/login/login";
 import SignIn from "@/pages/auth/signIn/signIn";
 import Layout from "@/layouts/layouts";
 import EventMain from "@/pages/eventMain/eventMain";
-import Tickets from "@/pages/tickets/tickets";
+import Tickets from "@/pages/ticketList/ticketsList";
 import UserProfil from "@/pages/userProfil/userProfil";
 import OrganizerForm from "@/pages/organizerForm/organizerForm";
 
