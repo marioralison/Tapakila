@@ -45,12 +45,15 @@ export function LoginForm({
                 </div>
                 <Input id="password" type="password" required />
               </div>
-              <Button onClick={() => navigate("/layout")} type="submit" className="w-full">
-                Se connecter
+              <Button onClick={() => navigate("/layoutOrganizer")} type="submit" className="w-full bg-secondary text-white hover:bg-secondary">
+                Organisateur
+              </Button>
+              <Button onClick={() => navigate("/layoutClient")} type="submit" className="w-full">
+                Client
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-                <span className="bg-card text-muted-foreground relative z-10 px-2">
-                  Or continue with
+                <span className="bg-card text-muted-foreground relative z-10 px-4">
+                  Continuez avec
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4">
