@@ -1,4 +1,4 @@
-import { CalendarIcon, Clock10Icon, MapPinnedIcon, CircleDollarSign } from "lucide-react";
+import { CalendarIcon, Clock10Icon, MapPinnedIcon, CircleDollarSign, CheckCircle2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -6,10 +6,9 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog"
 import { useState } from "react";
-import { toast } from "sonner"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner";
 
 type EventModalProps = {
   isOpen: boolean;
@@ -37,7 +36,6 @@ export default function EventModal({ isOpen, onClose, event }: EventModalProps) 
       <DialogContent className="rounded-xl p-1">
         <DialogHeader>
           <DialogDescription>
-            <Toaster />
             {!reserve ? (
                 <div className="space-y-3 h-full flex gap-2">
                     <img
@@ -92,45 +90,87 @@ export default function EventModal({ isOpen, onClose, event }: EventModalProps) 
                     />
                     <form className="flex flex-col justify-between items-center gap-3 py-6 px-6">
                         <div className="w-full">
-                            <h3 className="text-4xl font-semibold text-zinc-900 pb-5">Formulaire de paiement</h3>
-                            <RadioGroup defaultValue="mvola" className="flex py-6">
-                                <div className="w-1/2 flex items-start space-x-2">
-                                    <RadioGroupItem value="mvola" id="mvola" />
-                                    <Label htmlFor="mvola" className="cursor-pointer">Mvola</Label>
-                                </div>
-                                <div className="w-1/2 flex items-start space-x-2">
-                                    <RadioGroupItem value="airtelMoney" id="airtelMoney" />
-                                    <Label htmlFor="airtelMoney" className="cursor-pointer">Airtel Money</Label>
-                                </div>
-                                <div className="w-1/2 flex items-start space-x-2">
-                                    <RadioGroupItem value="orangeMoney" id="orangeMoney" />
-                                    <Label htmlFor="orangeMoney" className="cursor-pointer">Orange Money</Label>
-                                </div>
-                            </RadioGroup>
+                            <h3 className="text-4xl font-semibold text-zinc-900 pb-8">Formulaire de paiement</h3>
+                            <div className="w-full flex flex-col gap pb-5">
+                                <p className="text-lg text-zinc-800 font-semibold pb-2">Mode de paiement</p>
+                                <RadioGroup defaultValue="mvola" className="flex gap-4">
+                                    <div className="w-1/3 h-12">
+                                        <RadioGroupItem
+                                            value="mvola"
+                                            id="mvola"
+                                            className="peer hidden"
+                                        />
+                                        <Label
+                                            htmlFor="mvola"
+                                            className="cursor-pointer rounded-lg border border-zinc-200 shadow-sm hover:scale-105 hover:shadow-lg h-full w-full px-4 py-2 text-left
+                                                    peer-data-[state=checked]:bg-amber-300 peer-data-[state=checked]:text-black
+                                                    transition"
+                                        >
+                                            Mvola
+                                        </Label>
+                                    </div>
+
+                                    <div className="w-1/3 h-12">
+                                        <RadioGroupItem
+                                            value="airtelMoney"
+                                            id="airtelMoney"
+                                            className="peer hidden"
+                                        />
+                                        <Label
+                                            htmlFor="airtelMoney"
+                                            className="w-full cursor-pointer rounded-lg border border-zinc-200 shadow-sm hover:scale-105 hover:shadow-lg h-full px-4 py-2 text-left
+                                                    peer-data-[state=checked]:bg-red-500 peer-data-[state=checked]:text-white
+                                                    transition"
+                                        >
+                                            Airtel Money
+                                        </Label>
+                                    </div>
+
+                                    <div className="w-1/3 h-12">
+                                        <RadioGroupItem
+                                            value="orangeMoney"
+                                            id="orangeMoney"
+                                            className="peer hidden"
+                                        />
+                                        <Label
+                                            htmlFor="orangeMoney"
+                                            className="block cursor-pointer rounded-lg border border-zinc-200 shadow-sm hover:scale-105 hover:shadow-lg h-full px-4 py-2 text-left
+                                                    peer-data-[state=checked]:bg-orange-500 peer-data-[state=checked]:text-white
+                                                    transition"
+                                        >
+                                            Orange Money
+                                        </Label>
+                                    </div>
+                                </RadioGroup>
+                            </div>
                             <div className="w-full flex flex-col gap-4 text-zinc-800">
                                 <input
                                     type="text"
-                                    placeholder="Numéro téléphone"
+                                    placeholder="Téléphone"
                                     className="border rounded-lg p-2 w-full"
                                 />
                                 <input
                                     type="text"
-                                    placeholder="Nom compte mobile money"
+                                    placeholder="Compte mobile money"
                                     className="border rounded-lg p-2 w-full"
                                 />
                                 <input
                                     type="password"
-                                    placeholder="Mot de passe mobile money"
+                                    placeholder="Code mobile money"
                                     className="border rounded-lg p-2 w-full"
                                 />
                                 <input
                                     type="password"
-                                    placeholder="Confirmer mot de passe mobile money"
+                                    placeholder="Code mot de passe mobile money"
                                     className="border rounded-lg p-2 w-full"
                                 />
                             </div>
                         </div>
                         <button
+                            onClick={() => toast("Commande effectué", {
+                                description: "Votre commande est faite avec succès",
+                                icon: <CheckCircle2 fill="green" color="white"/>,
+                            })}
                             type="submit"
                             className="w-full bg-primary py-2 rounded-xl text-secondary text-lg cursor-pointer"
                         >
