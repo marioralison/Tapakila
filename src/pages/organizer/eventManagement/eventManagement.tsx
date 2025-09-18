@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Plus } from "lucide-react"
 import EventCard from "@/components/eventCard";
 import EventModal from "@/components/eventModal";
+import EventInputModal from "@/components/eventInputModal";
 import { eventsData } from "@/data/eventsData";
 
 interface Event {
@@ -18,6 +19,7 @@ interface Event {
 function EventManagement() {
 
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectCreateEvent, setSelectCreateEvent] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = (event: Event) => {
@@ -28,12 +30,13 @@ function EventManagement() {
   const closeModal = () => {
     setIsOpen(false);
     setSelectedEvent(null);
+    setSelectCreateEvent(false)
   };
 
   return (
     <div className="w-full h-full flex flex-col justify-start items-start gap-16">
       <div className="w-full h-full relative">
-        <button className="absolute py-3 px-4 bottom-0 right-0 bg-primary flex justify-center items-center gap-2 rounded-xl shadow-xl cursor-pointer">
+        <button onClick={() => setSelectCreateEvent(true)} className="absolute z-50 fixed py-3 px-4 bottom-15 right-15 bg-primary flex justify-center items-center gap-2 rounded-xl shadow-xl cursor-pointer transition delay-180 duration-180 ease-in-out hover:-translate-y-1 hover:scale-102">
           <Plus size={22}/>
           <p className="font-semibold">Créer évènement</p>
         </button>
@@ -55,6 +58,13 @@ function EventManagement() {
           onClose={closeModal} 
           event={selectedEvent} 
           userType="admin"
+        />
+      )}
+
+      {selectCreateEvent && (
+        <EventInputModal
+          isOpen={selectCreateEvent}
+          onClose={closeModal}
         />
       )}
     </div>

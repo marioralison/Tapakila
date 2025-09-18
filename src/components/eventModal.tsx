@@ -247,12 +247,19 @@ export default function EventModal({ isOpen, onClose, event, userType }: EventMo
                                             defaultValue={event.time}
                                             className="border rounded-lg text-zinc-900 p-2 w-full"
                                         />
-                                        <input
-                                            type="text"
-                                            defaultValue={event.location}
-                                            placeholder="Lieu"
-                                            className="border rounded-lg text-zinc-900 p-2 w-full"
-                                        />
+                                        <div className="w-full flex justify-center items-center gap-4">
+                                            <input
+                                                type="text"
+                                                defaultValue={event.location}
+                                                placeholder="Lieu"
+                                                className="border rounded-lg text-zinc-900 p-2 w-full"
+                                            />
+                                            <input
+                                                type="Number"
+                                                placeholder="Nombre place"
+                                                className="border rounded-lg text-zinc-900 p-2 w-full"
+                                            />
+                                        </div>
                                         <input
                                             type="number"
                                             defaultValue={event.price}
