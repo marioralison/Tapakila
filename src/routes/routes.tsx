@@ -12,8 +12,8 @@ import UserProfilClient from "@/pages/client/userProfil/userProfil";
 import OrganizerForm from "@/pages/client/organizerForm/organizerForm";
 
 import EventManagement from "@/pages/organizer/eventManagement/eventManagement";
-import Reservation from "@/pages/organizer/reservation/reservations";
 import UserProfilOrganizer from "@/pages/organizer/userProfil/userProfil";
+import Reservation from "@/pages/organizer/reservation/reservation";
 
 export default function AppRoutes() {
   return (

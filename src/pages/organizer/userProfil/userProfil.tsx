@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Pencil, CheckCircle2 } from "lucide-react"
+import { Pencil, CheckCircle2, Save } from "lucide-react"
 import { toast } from "sonner"
 
 function UserProfil() {
@@ -32,22 +32,26 @@ function UserProfil() {
   return (
     <div className="w-full h-full flex flex-col justify-between items-start">
       <div className="flex items-center justify-between w-full">
-        <h1 className="text-4xl font-bold pb-5">Mon profil</h1>
-        {!isEditing ? (
-          <button
-            onClick={() => setIsEditing(true)}
-            className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg"
-          >
-            <Pencil size={18} /> Modifier
-          </button>
-        ) : (
-          <button
-            onClick={handleSave}
-            className="flex items-center gap-2 bg-green-400 text-white px-4 py-2 rounded-lg"
-          >
-            Sauvegarder
-          </button>
-        )}
+        <div className="pb-5 flex gap-4">
+          <h1 className="text-4xl font-bold">Mon profil</h1>
+          {!isEditing ? (
+            <button
+              onClick={() => setIsEditing(true)}
+              className="flex items-center justify-center gap-2 bg-white rounded-full text-black px-4 h-10 text-black text-lg cursor-pointer"
+            >
+              <Pencil size={18} color="black"/>
+              Modifier
+            </button>
+          ) : (
+            <button
+              onClick={handleSave}
+              className="flex items-center gap-2 bg-green-300 text-secondary px-4 h-10 rounded-full cursor-pointer"
+            >
+              <Save size={18} color="black"/>
+              Sauvegarder
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="w-full h-full flex justify-between flex-col gap-6">
